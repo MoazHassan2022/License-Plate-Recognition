@@ -1,0 +1,30 @@
+أ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ب : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ت : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ث : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ج : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ح : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+خ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+د : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ذ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ر : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ز : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+س : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ش : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ص : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ض : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ط : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ظ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ع : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+غ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ف : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ق : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ك : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ل : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+م : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ن : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ه : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+و : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+ي : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+
+all counters are normalized
