@@ -1,30 +1,49 @@
-أ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ب : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ت : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ث : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ج : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ح : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-خ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-د : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ذ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ر : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ز : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-س : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ش : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ص : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ض : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ط : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ظ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ع : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-غ : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ف : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ق : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ك : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ل : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-م : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ن : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ه : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-و : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
-ي : NS= , SN= ,EW= , WE= ,NSWE= ,NESW= , SENW= ,SWNE=  
+List Values:
+    NS , SN , EW , WE , NSWE , NESW , SENW , SWNE
+0 : 
+1 : 
+2 : 0.07417582 0.00549451 0.04945055 0.         0.0521978  0. 0.         0.00274725
+3 : 
+4 : 
+5 : 0.06868132 0.01648352 0.02197802 0.         0.02472527 0. 0.    0.
+6 : 
+7 : 
+8 : 0.06666667 0.02716049 0.         0.         0.00246914 0. 0.01234568 0.00246914
+9 : 
+10 : 0.44827586 0.01724138 0.   0.    0.01724138 0.  0.    0.24137931
+11 :   
+12 :   
+13 :   
+14 : 0.00881834 0.01058201 0.00176367 0.         0.00352734 0. 0.00352734 0.00176367  
+15 :   
+16 :   
+17 : 0.02   0.0075 0.0025 0.     0.0025 0.     0.005  0.0025
+18 :   
+19 :   
+20 :   
+21 :   
+22 :  
+23 : 0.04830918 0.04589372 0.01932367 0.         0.01932367 0. 0.00483092 0.00724638   
+24 :  
+25 :   
+26 :   
+27 :   
+28 : 
+29 : 
+30 : 
+31 : 
+32 : 
+33 : 
+34 : 
+35 : 
+36 : 
+37 :
+
+Coding: 
+0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => alef, 11 => ba', 12 => ta', 13 => tha', 14 => gem, 15 => ha', 16 => kha', 17 => dal, 18 => dhal, 
+19 => ra', 20 => zay, 21 => sen, 22 => shen, 23 => sad, 24 => dad, 25 => ta', 26 => za', 27 => aen, 28 => a'en => 29 => fa', 30 => qaf, 31 => kaf, 32 => lam, 33 => mem, 34 => noon, 
+35 => ha', 36 => wow, 37 => ya'
+  
+
 
 all counters are normalized
