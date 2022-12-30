@@ -211,7 +211,7 @@ QPushButton:hover#recognizeButton
           <string notr="true">color: rgb(133, 0, 0);</string>
          </property>
          <property name="text">
-          <string>Enter a car image name in cars folder</string>
+          <string>Select a car image and click &quot;Recognize&quot;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::AutoText</enum>
