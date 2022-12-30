@@ -178,60 +178,6 @@ QPushButton:hover#recognizeButton
           <bool>false</bool>
          </property>
         </widget>
-        <widget class="QLineEdit" name="carImageName">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>370</y>
-           <width>431</width>
-           <height>51</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Microsoft New Tai Lue</family>
-           <pointsize>9</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLineEdit#carImageName
-{
-	background-color: rgb(133, 0, 0);
-	color: rgb(255, 219, 137);
-	border-style: outset;
-	border-width: 2px;
-	border-radius: 10px;
-	border-color: black;
-}
-QLineEdit:hover#carImageName
-{
-	background-color: rgb(220, 0, 0);
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>i.e. car.jpg</string>
-         </property>
-        </widget>
         <widget class="QLabel" name="label_2">
          <property name="geometry">
           <rect>
@@ -488,6 +434,86 @@ border-color: black;
          </property>
          <property name="margin">
           <number>0</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="selectButton">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>370</y>
+           <width>431</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>900000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Microsoft New Tai Lue</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::DefaultContextMenu</enum>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#selectButton
+{
+   border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 			0, 255), stop:1 rgba(255, 255, 255, 255));	
+	background-color: rgb(133, 0, 0);
+	color: rgb(255, 219, 137);
+	border-style: outset;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: black;
+	padding: 7px;
+}
+QPushButton:hover#selectButton
+{
+	background-color: rgb(220, 0, 0);
+}</string>
+         </property>
+         <property name="text">
+          <string>Select Image</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+         <property name="autoRepeat">
+          <bool>false</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
          </property>
         </widget>
        </widget>

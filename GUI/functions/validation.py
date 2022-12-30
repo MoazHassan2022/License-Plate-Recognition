@@ -1,5 +1,5 @@
 import os
-from printMessages import *
+from functions.printMessages import *
 
 class Validation:
     inputString = ""
@@ -11,13 +11,6 @@ class Validation:
         # Some input validations
         if self.inputString == "" or self.inputString == " ":
             printCritical("Empty input for car image name!")
-            return 0
-        found = 0
-        for i in os.listdir('cars/'):
-            if i == self.inputString:
-                found = 1
-        if not found:
-            printCritical("Image is not found in cars folder!")
             return 0
         return 1
 

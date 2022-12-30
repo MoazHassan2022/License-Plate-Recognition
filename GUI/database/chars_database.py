@@ -31,7 +31,7 @@ chars_matching = {
     "noon": "ن",
     "ha'":"ه",
     "waw":"و",
-    "ya'":"ى",
+    "ya'":"ي",
     "0":"0",
     "1":"1",
     "2":"2",
@@ -45,9 +45,12 @@ chars_matching = {
 }
 
 def fill_chars_database(database_characters):
-    for char in os.listdir('charImages/'):
+    for char in os.listdir('database/charImages/'):
         for key, val in chars_matching.items():
             if char.startswith(key):
-                database_characters.append(character(val, "charImages/"+char))
+                database_characters.append(character(val, "database/charImages/"+char))
+    return database_characters
+
+
 
 

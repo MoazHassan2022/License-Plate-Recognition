@@ -1,15 +1,16 @@
 # Used PyQt5 to implement the GUI
-from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialog, QApplication,QWidget, QVBoxLayout, QPushButton, QFileDialog , QLabel, QTextEdit
 from PyQt5 import QtWidgets, uic
-import sys
-from recognize import recognizeCar, runDatabase
-from validation import Validation
-from printMessages import *
-from PyQt5.QtGui import QPixmap, QImage
+from functions.recognizePlate import recognizeCar, runDatabase
+from functions.validation import Validation
+from functions.printMessages import *
+from PyQt5.QtGui import *
 from PyQt5.QtCore import Qt
 import cv2 as cv
 import traceback
 import logging
+import sys
+from functions.func import readImage
 
 class Window(QDialog):
     def __init__(self):
@@ -17,6 +18,8 @@ class Window(QDialog):
         # Load the implemented UI window
         uic.loadUi('mainWindow.ui', self)
         runDatabase()
+        self.selectButton.clicked.connect(self.getImage)
+        self.selectedPhoto = ""
         self.showMaximized()
         self.recognizeButton.clicked.connect(self.start)
         self.setWindowTitle("Gate Access Controller")
@@ -32,25 +35,40 @@ class Window(QDialog):
         return QPixmap.fromImage(p)
 
     def start(self):
-        carImageName = self.carImageName.text()
-        validator = Validation(carImageName)
+        imageRead = self.selectedPhoto
+        databaseCheck, characters, plate = recognizeCar(imageRead)
+        if len(plate) == 0:
+            return
+        try:
+            plate = self.convert_cv_qt(plate, 481, 191)
+        except Exception as e:
+            logging.error(traceback.format_exc())
+        self.plateImage.setPixmap(plate)
+        plateChars = ""
+        for char in characters:
+            plateChars += char + " "
+        printInfo("Car Plate Characters: " + plateChars)
+        if databaseCheck:
+            printInfo("Car is welcome to enter!")
+        else:
+            printCritical("Car can't enter!")
+        return
+
+    def getImage(self):
+        self.plateImage.clear()
+        self.carImage.clear()
+        fname = QFileDialog.getOpenFileName(self, 'Open file', 'c:\'')
+        selectedPath = fname[0] # image path
+        validator = Validation(selectedPath)
+        photo = []
         if validator.validate():
-            databaseCheck, characters, plate, imageRead = recognizeCar(carImageName)
             try:
-                imageRead = self.convert_cv_qt(imageRead, 581, 371)
-                plate = self.convert_cv_qt(plate, 481, 191)
+                self.selectedPhoto = readImage(selectedPath)
+                photo = self.convert_cv_qt(self.selectedPhoto, 581, 371)
             except Exception as e:
                 logging.error(traceback.format_exc())
-            self.carImage.setPixmap(imageRead)
-            self.plateImage.setPixmap(plate)
-            plateChars = ""
-            for char in characters:
-                plateChars += char + " "
-            printInfo("Car Plate Characters: " + plateChars)
-            if databaseCheck:
-                printInfo("Car is welcome to enter!")
-            else:
-                printCritical("Car can't enter!")
+                return
+            self.carImage.setPixmap(photo)
         return
 
 
