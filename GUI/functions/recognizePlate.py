@@ -54,15 +54,15 @@ class characterContour:
         self.corr = 0
 
 
-def detectChar(Unk_char):
-    r = 500000000000
-    curr_r = 500000000000
-    for j in database_characters:
-        curr_r = similarity = getSimilarity(Unk_char.template, j.template)
-        if curr_r < r:
-            Unk_char.char = j.char
-            r = curr_r
-    return Unk_char.char
+def detectChar(unknownChar):
+    minError = 500000000000
+    currError = 500000000000
+    for databaseChar in database_characters:
+        currError = getError(unknownChar.template,databaseChar.template)
+        if currError < minError:
+            unknownChar.char = databaseChar.char
+            minError = currError
+    return unknownChar.char
 
 
 def movePointBy90(hieght, width, i, j):
@@ -217,16 +217,17 @@ def getChars(img):
     charTexts.reverse()
     return charTexts
 
-def getSimilarity(img1, img2):
-    dim = (60, 60)
-    img1 = cv.GaussianBlur(img1, (19, 19), 0)
-    img2 = cv.GaussianBlur(img2, (19, 19), 0)
-    img1 = cv.resize(img1, dim, interpolation=cv.INTER_AREA)
-    img2 = cv.resize(img2, dim, interpolation=cv.INTER_AREA)
-    ret2, img1 = cv.threshold(img1, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
-    ret2, img2 = cv.threshold(img2, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
-    sim = img1 - img2
-    sim = sim * sim
-    sim = np.sum(sim)
-    sim = np.sqrt(sim)
-    return sim
+def getError(img1, img2):
+    dim = (60,60)
+    img1 = cv.GaussianBlur(img1,(19,19),0)
+    img2 = cv.GaussianBlur(img2,(19,19),0)
+    img1 = cv.resize(img1, dim, interpolation = cv.INTER_AREA)
+    img2 = cv.resize(img2, dim, interpolation = cv.INTER_AREA)
+    _,img1 = cv.threshold(img1,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    _,img2 = cv.threshold(img2,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    error = img1 - img2
+    error = error * error
+    error = np.sum(error)
+    error = np.sqrt(error)
+    # sqrt(sum(square(img1 - img2)))
+    return error
