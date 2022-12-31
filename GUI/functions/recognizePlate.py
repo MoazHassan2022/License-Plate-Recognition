@@ -17,34 +17,24 @@ dim = (60, 60)
 
 database_characters = []
 
+
 def runDatabase():
     fill_chars_database(database_characters)
 
+
 def recognizeCar(imageRead):
-    try:
-        # show_images([imageRead], ["Read"])
-        plateRead = plateDetect(imageRead)
-        plate = (rgb2gray(plateRead) * 255).astype("uint8")
-        # show_images([image], ["Original"])
-        image = cv.threshold(plate, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)[1]
-        # show_images([image], ["Binary"])
-        x, y = image.shape
-        structuringEl = np.ones((2, 2))
-        image = binary_opening(image, structuringEl)
-        # show_images([image], ["After Morphology"])
-        image = image[int(x // 2.2):x - int(x // 15), int(y // 15):]
-        # show_images([image], ["After cutting first time"])
-        image = cropPlate(image)
-        # show_images([image], ["After cutting second time"])
-        image = removeBlackColumns(image)
-        # show_images([image], ["After removing black columns"])
-        charText = getChars(image)
-        # print(charText)
-        return checkInDatabase(charText, 'database/database.txt'), charText, plateRead
-    except Exception as e:
-        logging.error(traceback.format_exc())
-        printCritical("Error in processing the image")
-        return False, [], [], []
+    plateRead = plateDetect(imageRead)
+    plate = (rgb2gray(plateRead) * 255).astype("uint8")
+    image = cv.threshold(plate, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)[1]
+    x, y = image.shape
+    structuringEl = np.ones((2, 2))
+    image = binary_opening(image, structuringEl)
+    image = image[int(x // 2.2):x - int(x // 15), int(y // 15):]
+    image = cropPlate(image)
+    image = removeBlackColumns(image)
+    charText = getChars(image)
+    return checkInDatabase(charText, 'database/database.txt'), charText, plateRead
+
 
 class characterContour:
     def __init__(self, char, template):
@@ -58,7 +48,7 @@ def detectChar(unknownChar):
     minError = 500000000000
     currError = 500000000000
     for databaseChar in database_characters:
-        currError = getError(unknownChar.template,databaseChar.template)
+        currError = getError(unknownChar.template, databaseChar.template)
         if currError < minError:
             unknownChar.char = databaseChar.char
             minError = currError
@@ -90,13 +80,15 @@ def checkRange(width, Xmin, Xmax):
     minWidth, maxWidth = width * 0.42, width * 0.57
     return not ((minWidth < Xmin and Xmin < maxWidth) and (minWidth < Xmax and Xmax < maxWidth))
 
+
 def checkValidContour(Xmin, Xmax, Ymin, Ymax):
     width = abs(Ymax - Ymin)
     height = abs(Xmax - Xmin)
-    if(width == 0):
+    if (width == 0):
         width = 1
     heightOverWidth = height / width
     return (heightOverWidth >= 0.12 and heightOverWidth <= 2.9 and width > 11 and height > 3)
+
 
 def detectDefect(char):
     charAvg = char.mean()
@@ -185,31 +177,31 @@ def cropPlate(image):
 
 def getChars(img):
     imgRows, imgCols = img.shape
-    if(imgRows < 2 or imgCols < 2):
+    if (imgRows < 2 or imgCols < 2):
         return []
     charTexts = []
     contours = find_contours(img, 0.8)
-    with_boxes  = np.zeros(img.shape, dtype=float)
+    with_boxes = np.zeros(img.shape, dtype=float)
     bounding_boxes = []
     for contour in contours:
-        Xmin = int(np.min(contour[:,1]))
-        Xmax = int(np.max(contour[:,1]))
-        Ymin = int(np.min(contour[:,0]))
-        Ymax = int(np.max(contour[:,0]))
+        Xmin = int(np.min(contour[:, 1]))
+        Xmax = int(np.max(contour[:, 1]))
+        Ymin = int(np.min(contour[:, 0]))
+        Ymax = int(np.max(contour[:, 0]))
         bounding_boxes.append([Xmin, Xmax, Ymin, Ymax])
 
     bounding_boxes.sort(key=lambda x: x[0])
     for box in bounding_boxes:
         [Xmin, Xmax, Ymin, Ymax] = box
-        if(checkValidContour(Xmin, Xmax, Ymin, Ymax) and checkRange(imgCols, Xmin, Xmax)):
-            rr, cc = rectangle(start = (Ymin,Xmin), end = (Ymax,Xmax), shape=with_boxes.shape)
-            with_boxes[rr, cc] = 1 #set color black
-            char = img[rr,cc]
+        if (checkValidContour(Xmin, Xmax, Ymin, Ymax) and checkRange(imgCols, Xmin, Xmax)):
+            rr, cc = rectangle(start=(Ymin, Xmin), end=(Ymax, Xmax), shape=with_boxes.shape)
+            with_boxes[rr, cc] = 1  # set color black
+            char = img[rr, cc]
             char = rotateMatrixNTimes(char, 3)
             char = np.fliplr(char)
             rows, cols = char.shape
-            char = char[1:rows-1,1:cols-1] # Cancel black borders (thickness is only 1 pixel)
-            if(abs(Xmax-Xmin) <= 4 and detectDefect(char)):
+            char = char[1:rows - 1, 1:cols - 1]  # Cancel black borders (thickness is only 1 pixel)
+            if (abs(Xmax - Xmin) <= 4 and detectDefect(char)):
                 continue
             char = characterContour("Unknown", img_as_ubyte(char))
             textChar = detectChar(char)
@@ -217,14 +209,15 @@ def getChars(img):
     charTexts.reverse()
     return charTexts
 
+
 def getError(img1, img2):
-    dim = (60,60)
-    img1 = cv.GaussianBlur(img1,(19,19),0)
-    img2 = cv.GaussianBlur(img2,(19,19),0)
-    img1 = cv.resize(img1, dim, interpolation = cv.INTER_AREA)
-    img2 = cv.resize(img2, dim, interpolation = cv.INTER_AREA)
-    _,img1 = cv.threshold(img1,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
-    _,img2 = cv.threshold(img2,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    dim = (60, 60)
+    img1 = cv.GaussianBlur(img1, (19, 19), 0)
+    img2 = cv.GaussianBlur(img2, (19, 19), 0)
+    img1 = cv.resize(img1, dim, interpolation=cv.INTER_AREA)
+    img2 = cv.resize(img2, dim, interpolation=cv.INTER_AREA)
+    _, img1 = cv.threshold(img1, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+    _, img2 = cv.threshold(img2, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
     error = img1 - img2
     error = error * error
     error = np.sum(error)

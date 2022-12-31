@@ -36,13 +36,19 @@ class Window(QDialog):
 
     def start(self):
         imageRead = self.selectedPhoto
-        databaseCheck, characters, plate = recognizeCar(imageRead)
+        try:
+            databaseCheck, characters, plate = recognizeCar(imageRead)
+        except Exception as e:
+            logging.error(traceback.format_exc())
+            printCritical("Error in processing the image")
+            return
         if len(plate) == 0:
             return
         try:
-            plate = self.convert_cv_qt(plate, 481, 191)
+            plate = self.convert_cv_qt(plate, 581, 191)
         except Exception as e:
             logging.error(traceback.format_exc())
+            return
         self.plateImage.setPixmap(plate)
         plateChars = ""
         for char in characters:
