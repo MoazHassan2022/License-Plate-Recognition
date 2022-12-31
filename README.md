@@ -6,20 +6,6 @@
 <blockquote style="font-size: 15px; font-weight: 500">
   <p >
   Our project is <strong>Gate access controller</strong>: A gate is open for specific cars based on their plate number, by capturing photographic video or images from license plates and transform the optical data into digital information and take a decision.
-  <br>
-  It is a Function Plotter app with Nice and Responsive GUI that takes 3 inputs: 
-  <ol>
-  <li>
-  <h4>Any 1-Variable Mathematical Function.</h4>
- </li>
- <li>
-  <h4>Minimum value of the variable.</h4>
- </li>
- <li>
-  <h4>Maximum value of the variable.</h4>
- </li>
- </ol>
- Then it plots this function if it is valid.
  </p>
 </blockquote>
 <hr/>
