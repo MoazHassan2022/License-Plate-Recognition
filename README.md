@@ -1,6 +1,6 @@
 # License plate recognition
 
-![alt text](./readme_images/logo.png)
+![alt text](./Documentation/logo.png)
 <hr/>
 <h2>Description</h2>
 <blockquote style="font-size: 15px; font-weight: 500">
@@ -11,7 +11,7 @@
 <hr/>
 
 <h2>Diagram<h2>
-<img src="./readme_images/block_diagram.png" />
+<img src="./Documentation/block_diagram.png" />
 <hr/>
 
 <h2>Detailed Flow-Chart</h2>
@@ -25,7 +25,7 @@
     <li>License Plate Recognition and compare with database</li>
     <li>If License Plate matched open the gate if not do nothing</li>
 </ul>
-<img src="./readme_images/flowchart.png" />
+<img src="./Documentation/flowchart.png" />
 
 <hr/>
 <h2>Image processing Algorithms applied</h2>
@@ -180,40 +180,40 @@
 <ol>
 <li>
   <h4>Program Interface</h4>
-  <img src="./readme_images/entry_point.jpeg">
+  <img src="./Documentation/entry_point.jpeg">
  </li>
 
  <li>
   <h4>Select image</h4>
-  <img src="./readme_images/select_image.jpeg">
+  <img src="./Documentation/select_image.jpeg">
  </li>
  <li>
   <h4>After Select</h4>
-  <img src="./readme_images/after_select.jpeg">
+  <img src="./Documentation/after_select.jpeg">
  </li>
  
  <li> 
  <h4>Characters Recognition</h4> 
-  <img src="./readme_images/result.jpeg">
+  <img src="./Documentation/result.jpeg">
  </li>
  
   <li> 
  <h4>Accepted Car</h4> 
-  <img src="./readme_images/result1.jpeg">
+  <img src="./Documentation/result1.jpeg">
  </li>
 
  <li>
   <h4>Another Car</h4>
-  <img src="./readme_images/car2.jpeg">
+  <img src="./Documentation/car2.jpeg">
  </li>
 
   <li>
   <h4>Characters Recognition</h4>
-  <img src="./readme_images/chars2.jpeg">
+  <img src="./Documentation/chars2.jpeg">
  </li>
 
    <li>
   <h4>Rejected Car (Do not have access regarding to the database)</h4>
-  <img src="./readme_images/result2.jpeg">
+  <img src="./Documentation/result2.jpeg">
  </li>
 </ol>
