@@ -124,8 +124,9 @@
 <ul>
     <li><strong><em>Open the terminal and the following code</em></strong>
     <div>
-        <code>$ jupyter notebook</code>
+        <code>$ cd Jupyter && jupyter notebook</code>
     </div>
+  </li>
 </ul>
 <hr/>
 
