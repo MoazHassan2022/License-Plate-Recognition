@@ -5,7 +5,7 @@
 <h2>Description</h2>
 <blockquote style="font-size: 15px; font-weight: 500">
   <p >
-  Our project is <strong>Gate access controller</strong>: A gate is open for specific cars based on their plate number, by capturing photographic video or images from license plates and transform the optical data into digital information and take a decision.
+  Our project is <strong>Gate Access Aontroller</strong>: A gate is open for specific cars based on their plate number, by capturing photographic images from license plates and transform the optical data into digital information and take a decision.
  </p>
 </blockquote>
 <hr/>
